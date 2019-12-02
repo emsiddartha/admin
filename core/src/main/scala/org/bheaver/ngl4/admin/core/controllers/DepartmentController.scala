@@ -3,11 +3,11 @@ package org.bheaver.ngl4.admin.core.controllers
 import java.util.concurrent.CompletionStage
 
 import javax.servlet.http.HttpServletResponse
-import org.bheaver.ngl4.admin.core.services.department.ListDepartmentServices
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
 import org.springframework.web.bind.annotation.{GetMapping, RequestParam, RestController}
 import org.bheaver.ngl4.admin.core.models.departmentModels._
 import org.bheaver.ngl4.admin.core.models.generalModels._
+import org.bheaver.ngl4.admin.core.services.ListDepartmentServices
 import org.json4s.DefaultFormats
 import org.json4s.jackson.Serialization._
 
@@ -35,7 +35,8 @@ class DepartmentController {
         Future( write(value))
       }
       case Right(value) => {
-          listDepartmentServices.listDepartments(value).map(response => write(response))
+          val res = listDepartmentServices.listDepartments(value).map(response => write(response))
+        res
       }
     }
     futureJSONString.toJava

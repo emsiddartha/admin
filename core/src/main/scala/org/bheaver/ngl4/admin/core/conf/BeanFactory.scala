@@ -1,6 +1,7 @@
 package org.bheaver.ngl4.admin.core.conf
 
-import org.bheaver.ngl4.admin.core.services.department.{ListDepartmentServices, ListDepartmentServicesImpl}
+import org.bheaver.ngl4.admin.core.services.{ListDepartmentServices, ListDepartmentServicesImpl}
+import org.bheaver.ngl4.admin.core.services.ListDepartmentServicesImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Component
 
